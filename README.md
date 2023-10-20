@@ -102,7 +102,7 @@ All output is written to the directory specified by `-o`. Under that directory:
 
 ## Contacts and bug reports
 
-If you encounter a bug using this modified version, feel free to open an [issue]() and I will respond as soon as I can.
+If you encounter a bug using this modified version, feel free to open an [issue](https://github.com/TobiasHohl/rmats2sashimiplot/issues/new/choose) and I will respond as soon as I can.
 
 ## Copyright and License Information
 
