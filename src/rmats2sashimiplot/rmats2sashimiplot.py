@@ -245,8 +245,9 @@ def conf_setting_file(options, gene_no_str=None, gene_symbol=None, events_name_l
     sample_labels_arr1 = []
     sample_labels_arr2 = []
     if gene_no_str is None:  # the case with coordinate
-        for rr in range(0, len_sample1):
-            sample_labels_arr1.append('\"{0}-{1}\"'.format(options.l1, str(rr + 1)))
+        label_1 = options.l1.split(',')
+        for s in label_1:
+            sample_labels_arr1.append('\"' + s + '\"')
         for rr in range(0, len_sample2):
             sample_labels_arr2.append('\"{0}-{1}\"'.format(options.l2, str(rr + 1)))
 
@@ -822,7 +823,7 @@ def main():
 
     label_group = parser.add_argument_group('Labels')
     label_group.add_argument("--l1", dest="l1",
-                             help="The label for the first sample.")
+                             help="Comma-separated list of sample labels. Alternatively the label for the first sample.")
     label_group.add_argument("--l2", dest="l2",
                              help="The label for the second sample.")
 
@@ -904,7 +905,7 @@ def main():
               " be omitted from the plot. Default: %(default)s"))
     optional_group.add_argument(
         "--color", dest="color",
-        help=('Specify a list of colors with one color per plot. Without'
+        help=('Specify a comma-separated list of colors with one color per plot. Without'
               ' grouping there is one plot per replicate. With grouping there'
               ' is one plot per group: --color \'#CC0011[,#FF8800]\''))
     optional_group.add_argument(
